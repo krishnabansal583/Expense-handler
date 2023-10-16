@@ -1,30 +1,58 @@
 import logo from './logo.svg';
+
 import './App.css';
-import{ Typography, styled,Box } from '@mui/material';
+
+import { useState } from 'react';
+import{ Typography, styled, Box, } from '@mui/material';
+
+
 //components
 import Balance from './components/Balance';
 import ExpenseCard from './components/ExpenseCard';
-import NewTranscations from './components/NewTranscations';
+import NewTransactions from './components/NewTransactions';
+import Transactions from './components/Transactions';
 const Header = styled(Typography)`
-margin: 10px 0;
-font-size: 36px;
-color: purple;
-text-transform: uppercase;
 
+font-size: 46px;
+color: #1565c0;
+text-transform:uppercase;
+text-decoration: overline underline;
+margin-bottom: 10px;
 `
-
+const Component = styled(Box)`
+display: flex;
+background: #cfd8dc ;
+width: 800px;
+padding: 10px;
+border-radius: 40px;
+margin: auto;
+& > div {
+  height: 70vh;
+  width: 50%;
+  padding: 30px;
+}`
 function App() {
+  
+
+  const [transactions, setTransactions] = useState([
+    { id: 1, text: 'Momos', amount: -20 },
+    { id: 2, text: 'Salary', amount: 3000 },
+    { id: 3, text: 'Book', amount: -100 },
+    { id: 4, text: 'Bonus', amount: 1500 }
+  ])
   return (
     <Box className="App">
       <Header>Expense Handler</Header>
-      <Box>
+      <Component>
 <Box>
-  <Balance />
-  <ExpenseCard />
-  <NewTranscations />
+  <Balance transactions={transactions}/>
+  <ExpenseCard transactions={transactions} />
+  <NewTransactions setTransactions={setTransactions} />
 </Box>
-<Box></Box>
-      </Box>
+<Box>
+  <Transactions transactions={transactions} setTransactions={setTransactions} />
+</Box>
+      </Component>
     </Box>
   );
 }
