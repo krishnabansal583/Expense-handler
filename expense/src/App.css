@@ -1,11 +1,15 @@
 .App {
   text-align: center;
-  background-image: 
-  url(
-"https://cdn.pixabay.com/photo/2023/05/02/07/06/hd-wallpaper-7964515_960_720.png");
-  height: 100vh;
- background-size: cover;
+  background-image: url("https://image.lexica.art/full_jpg/5a429025-f2fa-44fb-a3dd-32d66db3d767");
+  background-size: cover; /* Set the background image to cover the container */
+  background-repeat: repeat;
+  height: 110vh;
 
+  @media (max-width: 768px) { /* For screens up to 768px wide */
+    background-repeat: repeat; /* Remove background image repeat */
+    background-size: 100% ; /* Set the background image to cover the entire width and maintain its aspect ratio */
+    height: 220vh; /* Ensure the background covers the entire height of the screen */
+  }
 }
 
 .App-logo {
@@ -20,7 +24,7 @@
 }
 
 .App-header {
-  background-color: #1a55ca;
+  background-color: #9aa4b6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -42,3 +46,14 @@
     transform: rotate(360deg);
   }
 }
+@media (min-width: 768px) {
+  .responsive{
+    display: flex;
+    flex-direction: column;
+   
+  }
+}
+.responsive{
+  color: #ffffff;
+}
+

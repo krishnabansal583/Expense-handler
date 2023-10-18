@@ -1,9 +1,12 @@
 
-import { Box, Typography, styled } from '@mui/material'
+import { Box, Typography, styled,} from '@mui/material'
 
 const BalanceText = styled(Typography)`
 font-size: 25px;
 margin-bottom: 20px;
+font-weight:bold;
+color:white;
+
 `
 
 const Balance = ({ transactions }) => {
@@ -13,6 +16,8 @@ const Balance = ({ transactions }) => {
     return (
         <Box>
             <BalanceText>Balance: ₹{total}</BalanceText>
+           
+           
         </Box>
     )
 }
